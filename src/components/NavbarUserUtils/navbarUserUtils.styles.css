@@ -1,0 +1,18 @@
+.navbar-user-utils-icon{
+    margin:0;
+    display:inline;
+    justify-content: right;
+    padding: 10px;
+
+}
+
+.navbar-user-utils-icon:hover{
+color:white;
+
+}
+
+.navbar-user-utils{
+    justify-content: right;
+    display:flex;
+
+}

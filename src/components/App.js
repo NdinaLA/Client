@@ -1,6 +1,10 @@
 // Libraries
 import React from "react";
+
+// Componenets
 import MerchThumbnail from "./merchThumbnail/merchandiseThumbnail";
+import Header from "./header/header.component"
+
 import axios from "axios";
 import Footer from './Footer/Footer';
 
@@ -33,6 +37,7 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
+          <Header />
         <div style={testingGridStyle}>
           {this.state.data.map(info => (
             <MerchThumbnail key={info.id} dataMap={info} />
