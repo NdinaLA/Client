@@ -11,4 +11,29 @@
 .houseLinks ul li {
   list-style: none;
   padding: 5px;
+  padding-left: 0;
+}
+
+.houseLinks ul li a {
+  text-decoration: none;
+  color: grey;
+}
+
+.houseLinks h3 {
+  margin-bottom: 3px;
+}
+
+.backToTop {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  justify-items: center;
+  align-items: center;
+  background-color: lightgrey;
+  height: 60px;
+  border-bottom: 2px solid #b3b3b3;
+}
+
+.backToTop:hover {
+  background-color: #b3b3b3;
 }
