@@ -2,10 +2,10 @@
 import React from "react";
 import MerchThumbnail from "./merchThumbnail/merchandiseThumbnail";
 import axios from "axios";
+import Footer from './Footer/Footer';
 
 const testingGridStyle = {
   display: "grid",
-  border: "2px dashed rgba(114, 186, 94, 0.35)",
   gridTemplateColumns: "1fr 1fr 1fr",
   gridTemplateRows: "auto",
   justifyItems: "center"
@@ -38,6 +38,7 @@ class App extends React.Component {
             <MerchThumbnail key={info.id} dataMap={info} />
           ))}
         </div>
+        <Footer />
       </React.Fragment>
     );
   }

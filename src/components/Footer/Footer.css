@@ -1,0 +1,14 @@
+.houseLinks {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  justify-items: center;
+  background-color: lightgray;
+  bottom: 0;
+  width: 100%;
+}
+
+.houseLinks ul li {
+  list-style: none;
+  padding: 5px;
+}
