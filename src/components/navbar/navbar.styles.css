@@ -3,11 +3,18 @@
     color:black;
     padding: 10px;
     text-decoration: none;
+    position:relative;
 
+}
+
+.navLink:hover{
+    color:white;
 }
 
 .navbar{
     display:flex;
     justify-content: center;
+    position:relative;
+    top:70%;
 
 }
