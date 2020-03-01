@@ -1,0 +1,12 @@
+.socialMediaImgHolder img {
+  height: 30px;
+  padding: 10px;
+  display: inline-block;
+}
+
+.socialMediaImgHolder {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-column: 2/2;
+  padding: 50px;
+}
