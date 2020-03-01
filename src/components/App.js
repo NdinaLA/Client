@@ -1,6 +1,10 @@
 // Libraries
 import React from "react";
+
+// Componenets
 import MerchThumbnail from "./merchThumbnail/merchandiseThumbnail";
+import Header from "./header/header.component"
+
 
 const testingGridStyle = {
   display: "grid",
@@ -17,6 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
+          <Header />
         <div style={testingGridStyle}>
           <MerchThumbnail />
           <MerchThumbnail />
