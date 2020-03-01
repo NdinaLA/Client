@@ -1,3 +1,11 @@
+:root {
+  --ndina-orange: #fe8c68;
+  --ndina-purple: #e0acd5;
+  --ndina-yellow: #ffff01;
+  --ndina-green: #c5e6db;
+  --ndina-white: #fffbf9;
+}
+
 body {
   margin: 0;
   font-family: Avenir;
