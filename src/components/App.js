@@ -5,6 +5,7 @@ import React from "react";
 import MerchThumbnail from "./merchThumbnail/merchandiseThumbnail";
 import Header from "./header/header.component"
 
+import axios from "axios";
 
 const testingGridStyle = {
   display: "grid",
@@ -14,8 +15,23 @@ const testingGridStyle = {
   justifyItems: "center"
 };
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+    this.state = {
+      data: []
+    };
+  }
+
+  async grabJsonData() {
+    console.log("user data mounted");
+    const { data } = await axios.get("http://localhost:5005/data/all");
+    this.setState({
+      data: data
+    });
+  }
+
+  componentDidMount() {
+    this.grabJsonData();
   }
 
   render() {
@@ -23,10 +39,9 @@ class App extends React.Component {
       <React.Fragment>
           <Header />
         <div style={testingGridStyle}>
-          <MerchThumbnail />
-          <MerchThumbnail />
-          <MerchThumbnail />
-          <MerchThumbnail />
+          {this.state.data.map(info => (
+            <MerchThumbnail key={info.id} dataMap={info} />
+          ))}
         </div>
       </React.Fragment>
     );
