@@ -3,10 +3,10 @@ import React from "react";
 
 // Componenets
 import MerchThumbnail from "./merchThumbnail/merchandiseThumbnail";
-import Header from "./header/header.component"
+import Header from "./header/header.component";
 
 import axios from "axios";
-import Footer from './Footer/Footer';
+import Footer from "./Footer/Footer";
 
 const testingGridStyle = {
   display: "grid",
@@ -37,7 +37,7 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-          <Header />
+        <Header />
         <div style={testingGridStyle}>
           {this.state.data.map(info => (
             <MerchThumbnail key={info.id} dataMap={info} />
