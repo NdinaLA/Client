@@ -12,7 +12,7 @@ color:white;
 }
 
 .navbar-user-utils{
-    justify-content: right;
-    display:flex;
+    justify-content: end;
+    display:grid;
 
 }
