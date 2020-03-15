@@ -12,7 +12,7 @@
 }
 
 .navbar{
-    display:grid;
+    display:flex;
     justify-content: center;
     position:relative;
     top:70%;
