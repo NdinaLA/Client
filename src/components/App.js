@@ -7,18 +7,19 @@ import Header from './header/header.component';
 
 import axios from 'axios';
 import Footer from './Footer/Footer';
+import LoginModal from './Modal/Modal';
 
 const testingGridStyle = {
   display: 'grid',
   gridTemplateColumns: '1fr 1fr 1fr',
   gridTemplateRows: 'auto',
-  justifyItems: 'center'
+  justifyItems: 'center',
 };
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
     };
   }
 
@@ -26,7 +27,7 @@ class App extends React.Component {
     console.log('user data mounted');
     const { data } = await axios.get('http://localhost:5005/data/all');
     this.setState({
-      data: data
+      data: data,
     });
   }
 
@@ -38,8 +39,9 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
+        <LoginModal />
         <div style={testingGridStyle}>
-          {this.state.data.map(info => (
+          {this.state.data.map((info) => (
             <MerchThumbnail key={info.id} dataMap={info} />
           ))}
         </div>
