@@ -8,12 +8,17 @@ import Header from './header/header.component';
 import axios from 'axios';
 import Footer from './Footer/Footer';
 
-const testingGridStyle = {
-  display: 'grid',
-  gridTemplateColumns: '1fr 1fr 1fr',
-  gridTemplateRows: 'auto',
-  justifyItems: 'center'
-};
+import './App.css';
+
+// Accessing Redux Store
+import { useSelector, useDispatch, connect } from 'react-redux';
+import { increment } from '../actions';
+
+connect(store => {
+  return {
+    counter: store.counter
+  };
+});
 class App extends React.Component {
   constructor() {
     super();
@@ -30,15 +35,25 @@ class App extends React.Component {
     });
   }
 
+  // Accessing redux store
+  //!   counter = () => useSelector(state => state.counter);
+  //!   dispatch = () => useDispatch(increment);
+
   componentDidMount() {
     this.grabJsonData();
+    this.props.useDispatch(increment);
   }
 
   render() {
+    // Grab counter from redux state
+    // const counter = useSelector(state => state.isLogged);
     return (
       <React.Fragment>
+        {/* <h1>{this.counter}</h1>
+        <button onClick={this.dispatch}>+</button>
+        <button>-</button> */}
         <Header />
-        <div style={testingGridStyle}>
+        <div className="testingGridStyle">
           {this.state.data.map(info => (
             <MerchThumbnail key={info.id} dataMap={info} />
           ))}
