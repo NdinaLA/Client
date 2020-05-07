@@ -3,20 +3,27 @@ import React from 'react';
 import Modal from 'react-modal';
 
 //css
-import './Modal.css';
+import './SignUpModal.css';
 
 Modal.setAppElement('#root');
 
-const LoginModal = () => {
+const SignUpModal = () => {
   return (
-    <Modal className="modal" isOpen={false}>
+    <Modal className="modal" isOpen={true}>
       <div className="formContainer">
         <form>
-          <p className="title">Login</p>
-          <label>Username</label>
+          <p className="title">Sign Up</p>
+          <label>Full Name</label>
           <input
             className="loginInput"
             type="text"
+            placeholder="Enter Full Name"
+            required
+          ></input>
+          <label>Email</label>
+          <input
+            className="loginInput"
+            type="email"
             placeholder="Enter Username"
             required
           ></input>
@@ -28,18 +35,15 @@ const LoginModal = () => {
             placeholder="Enter Password"
           ></input>
 
-          <button type="submit">Login</button>
-          <button type="submit">Sign up</button>
+          <button type="submit">Register</button>
+
           <div className="rememberMe">
             <input type="checkbox"></input>
             <label>Remember me</label>
           </div>
           <div>
             <a href="#!" className="loginMargin">
-              Forgot username
-            </a>
-            <a href="#!" className="loginMargin">
-              Forgot password
+              Go back to Login
             </a>
           </div>
         </form>
@@ -47,4 +51,4 @@ const LoginModal = () => {
     </Modal>
   );
 };
-export default LoginModal;
+export default SignUpModal;

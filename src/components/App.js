@@ -1,13 +1,11 @@
 // Libraries
 import React from 'react';
+import axios from 'axios';
 
 // Componenets
 import MerchThumbnail from './merchThumbnail/merchandiseThumbnail';
 import Header from './header/header.component';
-
-import axios from 'axios';
 import Footer from './Footer/Footer';
-import LoginModal from './Modal/Modal';
 
 const testingGridStyle = {
   display: 'grid',
@@ -39,7 +37,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
-        <LoginModal />
+
         <div style={testingGridStyle}>
           {this.state.data.map((info) => (
             <MerchThumbnail key={info.id} dataMap={info} />
