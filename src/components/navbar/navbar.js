@@ -7,19 +7,19 @@ class Navbar extends React.Component {
     return (
       <div>
         <div className="navbar">
-          <a className="navLink" href="#">
+          <a className="navLink" href="#!">
             Dresses
           </a>
-          <a className="navLink" href="#">
+          <a className="navLink" href="#!">
             Tops
           </a>
-          <a className="navLink" href="#">
+          <a className="navLink" href="#!">
             Nursing
           </a>
-          <a className="navLink" href="#">
+          <a className="navLink" href="#!">
             Bottoms
           </a>
-          <a className="navLink" href="#">
+          <a className="navLink" href="#!">
             Cardigan
           </a>
         </div>

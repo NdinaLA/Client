@@ -7,7 +7,9 @@ import Header from './header/header.component';
 
 import axios from 'axios';
 import Footer from './Footer/Footer';
+import LoginModal from './Modal/Modal';
 
+<<<<<<< HEAD
 import './App.css';
 
 // Accessing Redux Store
@@ -19,11 +21,19 @@ connect(store => {
     counter: store.counter
   };
 });
+=======
+const testingGridStyle = {
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr 1fr',
+  gridTemplateRows: 'auto',
+  justifyItems: 'center',
+};
+>>>>>>> 75a3ef97d097a937f992f246e395fd6c06a09bec
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
     };
   }
 
@@ -31,7 +41,7 @@ class App extends React.Component {
     console.log('user data mounted');
     const { data } = await axios.get('http://localhost:5005/data/all');
     this.setState({
-      data: data
+      data: data,
     });
   }
 
@@ -53,8 +63,14 @@ class App extends React.Component {
         <button onClick={this.dispatch}>+</button>
         <button>-</button> */}
         <Header />
+<<<<<<< HEAD
         <div className="testingGridStyle">
           {this.state.data.map(info => (
+=======
+        <LoginModal />
+        <div style={testingGridStyle}>
+          {this.state.data.map((info) => (
+>>>>>>> 75a3ef97d097a937f992f246e395fd6c06a09bec
             <MerchThumbnail key={info.id} dataMap={info} />
           ))}
         </div>
