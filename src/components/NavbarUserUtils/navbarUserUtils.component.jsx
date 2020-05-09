@@ -7,34 +7,34 @@ import searchIcon from '../../assets/search-icon.svg';
 import cartIcon from '../../assets/cart.svg';
 
 import LoginModal from '../LoginModal/LoginModal';
+import { connect } from 'react-redux';
+import { toggleModal } from '../../actions/modalDisplay';
 
-class NavbarUserUtils extends React.Component {
-  state = { show: false };
+const NavbarUserUtils = ({ toggleModal }) => {
+  return (
+    <div className="navbar-user-utils">
+      <LoginModal />
+      <img
+        className="navbar-user-utils-icon"
+        src={searchIcon}
+        alt="search icon"
+      />
+      <p className="navbar-user-utils-icon" onClick={toggleModal}>
+        Log In
+      </p>
+      <img className="navbar-user-utils-icon" src={cartIcon} alt="cart icon " />
+    </div>
+  );
+};
 
-  modalDisplay = () => {
-    this.setState((prevState) => ({ show: !prevState.show }));
-  };
+// const mapStateToProps = (state) => {
+//   return {
+//     showModal: state.modalDisplay.showModal,
+//   };
+// };
 
-  render() {
-    return (
-      <div className="navbar-user-utils">
-        <LoginModal isOpen={this.state.show} />
-        <img
-          className="navbar-user-utils-icon"
-          src={searchIcon}
-          alt="search icon"
-        />
-        <p className="navbar-user-utils-icon" onClick={this.modalDisplay}>
-          Log In
-        </p>
-        <img
-          className="navbar-user-utils-icon"
-          src={cartIcon}
-          alt="cart icon "
-        />
-      </div>
-    );
-  }
-}
+// const mapDispatchToProps = {
+//   showModal,
+// };
 
-export default NavbarUserUtils;
+export default connect(null, { toggleModal })(NavbarUserUtils);

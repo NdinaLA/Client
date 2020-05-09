@@ -44,16 +44,17 @@ form {
   align-items: center;
 }
 
-.modal {
-  background-color: #cccbcb;
+.loginModal {
+  background-color: white;
   width: 40%;
-  height: 550px;
+  height: 650px;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid black;
 }
+
 .loginMargin {
   margin-left: 10px;
   margin-right: 10px;
@@ -72,4 +73,9 @@ form {
   margin: 0;
   justify-content: flex-end;
   padding: 10px;
+}
+
+.close:hover {
+  color: #cc66c4;
+  cursor: pointer;
 }
