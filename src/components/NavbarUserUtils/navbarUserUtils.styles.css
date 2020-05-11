@@ -1,16 +1,15 @@
-.navbar-user-utils-icon{
-    margin:0;
-    display:inline;
-    padding: 10px;
-
+.navbar-user-utils-icon {
+  margin: 0;
+  display: inline;
+  padding: 10px;
 }
 
-.navbar-user-utils-icon:hover{
-color:white;
-
+.navbar-user-utils-icon:hover {
+  color: white;
+  cursor: pointer;
 }
 
-.navbar-user-utils{
-    display:flex;
-    justify-content: flex-end;
+.navbar-user-utils {
+  display: flex;
+  justify-content: flex-end;
 }

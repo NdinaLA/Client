@@ -24,7 +24,6 @@ button:hover {
 }
 
 .formContainer {
-  height: 100%;
   width: 80%;
   display: flex;
   align-items: center;
@@ -45,16 +44,17 @@ form {
   align-items: center;
 }
 
-.modal {
-  background-color: #cccbcb;
+.loginModal {
+  background-color: white;
   width: 40%;
-  height: 500px;
+  height: 650px;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid black;
 }
+
 .loginMargin {
   margin-left: 10px;
   margin-right: 10px;
@@ -66,4 +66,16 @@ form {
 
 .rememberMe {
   margin-bottom: 10px;
+}
+
+.close {
+  display: flex;
+  margin: 0;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.close:hover {
+  color: #cc66c4;
+  cursor: pointer;
 }
