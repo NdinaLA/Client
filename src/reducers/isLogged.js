@@ -22,7 +22,7 @@ const LoggedReducer = (state = initialState, action) => {
       return {
         ...state,
         isLogged: true,
-        user: payload,
+        user: payload.email,
       };
     case SIGN_IN:
     case REGISTER_USER:
@@ -31,7 +31,7 @@ const LoggedReducer = (state = initialState, action) => {
         ...state,
         ...payload,
         isLogged: true,
-        user: payload,
+        user: payload.email,
       };
     case SIGN_OUT:
     case AUTH_ERROR:

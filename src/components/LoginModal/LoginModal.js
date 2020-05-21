@@ -26,9 +26,12 @@ class LoginModal extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  login = () => {
-    this.props.signInUser(this.state.email, this.state.password);
+  login = async () => {
+    await this.props.signInUser(this.state.email, this.state.password);
     console.log('logging in' + this.state.email, this.state.password);
+    if (this.props.isLogged) {
+      this.props.toggleModal();
+    }
   };
 
   signUp = async () => {
