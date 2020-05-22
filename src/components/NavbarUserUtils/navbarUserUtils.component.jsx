@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { toggleModal } from '../../actions/modalDisplay';
 import { signOutUser } from '../../actions/isLogged';
 
-const NavbarUserUtils = ({ toggleModal, isLogged, signOutUser }) => {
+const NavbarUserUtils = ({ toggleModal, authorized, signOutUser }) => {
   return (
     <div className="navbar-user-utils">
       <LoginModal />
@@ -20,7 +20,7 @@ const NavbarUserUtils = ({ toggleModal, isLogged, signOutUser }) => {
         src={searchIcon}
         alt="search icon"
       />
-      {isLogged === false ? (
+      {authorized === false ? (
         <p className="navbar-user-utils-icon" onClick={toggleModal}>
           Log In
         </p>
@@ -36,13 +36,9 @@ const NavbarUserUtils = ({ toggleModal, isLogged, signOutUser }) => {
 
 const mapStateToProps = (state) => {
   return {
-    isLogged: state.isLogged.isLogged,
+    authorized: state.isLogged.authorized,
   };
 };
-
-// const mapDispatchToProps = {
-//   showModal,
-// };
 
 export default connect(mapStateToProps, { toggleModal, signOutUser })(
   NavbarUserUtils

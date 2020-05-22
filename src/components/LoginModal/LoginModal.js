@@ -22,31 +22,30 @@ class LoginModal extends React.Component {
     };
   }
 
-  onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  onChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   };
 
   login = async () => {
-    await this.props.signInUser(this.state.email, this.state.password);
-    console.log('logging in' + this.state.email, this.state.password);
-    if (this.props.isLogged) {
-      this.props.toggleModal();
+    const { signInUser, authorized, toggleModal } = this.props;
+    const { email, password } = this.state;
+    await signInUser(email, password);
+
+    if (authorized) {
+      toggleModal();
     }
   };
 
   signUp = async () => {
-    console.log('user register clicked');
-    this.props.registerUser(
-      this.state.name,
-      this.state.email,
-      this.state.password
-    );
-
-    await console.log(this.props.user);
+    const { name, email, password } = this.state;
+    const { registerUser } = this.props;
+    registerUser(name, email, password);
   };
 
   render() {
-    const { showModal, toggleModal, formSwap } = this.props;
+    const { showModal, toggleModal, formSwap, modalForm } = this.props;
+    const { name, email, password, confirmPassword } = this.state;
     return (
       <Modal
         className="loginModal"
@@ -61,7 +60,7 @@ class LoginModal extends React.Component {
         </p>
 
         <div className="formContainer">
-          {this.props.modalForm ? (
+          {modalForm ? (
             <form>
               <p className="title">Login</p>
 
@@ -72,7 +71,7 @@ class LoginModal extends React.Component {
                 placeholder="Enter Email"
                 onChange={this.onChange}
                 name="email"
-                value={this.state.email}
+                value={email}
                 required
               ></input>
 
@@ -82,7 +81,7 @@ class LoginModal extends React.Component {
                 type="password"
                 placeholder="Enter Password"
                 name="password"
-                value={this.state.password}
+                value={password}
                 onChange={this.onChange}
               ></input>
 
@@ -113,7 +112,7 @@ class LoginModal extends React.Component {
                 placeholder="Enter Full Name"
                 required
                 name="name"
-                value={this.state.name}
+                value={name}
                 onChange={this.onChange}
               ></input>
               <label>Email</label>
@@ -123,7 +122,7 @@ class LoginModal extends React.Component {
                 placeholder="Enter Email"
                 onChange={this.onChange}
                 name="email"
-                value={this.state.email}
+                value={email}
                 required
               ></input>
 
@@ -133,7 +132,7 @@ class LoginModal extends React.Component {
                 type="password"
                 placeholder="Enter Password"
                 name="password"
-                value={this.state.password}
+                value={password}
                 onChange={this.onChange}
               ></input>
 
@@ -143,7 +142,7 @@ class LoginModal extends React.Component {
                 type="password"
                 placeholder="Enter Password"
                 name="confirmPassword"
-                value={this.state.confirmPassword}
+                value={confirmPassword}
                 onChange={this.onChange}
               ></input>
 
@@ -175,7 +174,7 @@ LoginModal.propTypes = {
 const mapStateToProps = (state) => ({
   modalForm: state.modalDisplay.modalForm,
   showModal: state.modalDisplay.showModal,
-  isLogged: state.isLogged.isLogged,
+  authorized: state.isLogged.authorized,
   user: state.isLogged.user,
 });
 

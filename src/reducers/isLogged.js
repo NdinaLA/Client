@@ -11,7 +11,7 @@ import {
 const initialState = {
   token: localStorage.getItem('token'),
   user: null,
-  isLogged: false,
+  authorized: false,
 };
 
 const LoggedReducer = (state = initialState, action) => {
@@ -21,7 +21,7 @@ const LoggedReducer = (state = initialState, action) => {
     case USER_LOADED:
       return {
         ...state,
-        isLogged: true,
+        authorized: true,
         user: payload.email,
       };
     case SIGN_IN:
@@ -30,7 +30,7 @@ const LoggedReducer = (state = initialState, action) => {
       return {
         ...state,
         ...payload,
-        isLogged: true,
+        authorized: true,
         user: payload.email,
       };
     case SIGN_OUT:
@@ -38,7 +38,7 @@ const LoggedReducer = (state = initialState, action) => {
     case LOGIN_FAIL:
     case REGISTER_FAIL:
       localStorage.removeItem('token');
-      return { ...state, isLogged: false, token: null };
+      return { ...state, authorized: false, token: null };
     default:
       return state;
   }
