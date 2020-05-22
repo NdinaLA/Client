@@ -11,13 +11,22 @@ import './App.css';
 
 // Accessing Redux Store
 import { useSelector, useDispatch, connect } from 'react-redux';
+import setAuthToken from '../utils/setAuthToken';
 import { increment } from '../actions';
+import { loadUser } from '../actions/isLogged';
 
-connect((store) => {
-  return {
-    counter: store.counter,
-  };
-});
+//for JWT
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
+// connect((store) => {
+//   return {
+//     counter: store.counter,
+
+//   };
+// });
+
 const testingGridStyle = {
   display: 'grid',
   gridTemplateColumns: '1fr 1fr 1fr',
@@ -46,6 +55,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.grabJsonData();
+    this.props.loadUser();
     // this.props.useDispatch(increment);
   }
 
@@ -70,4 +80,8 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = {
+  loadUser,
+};
+
+export default connect(null, mapDispatchToProps)(App);
