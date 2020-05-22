@@ -44,7 +44,13 @@ class LoginModal extends React.Component {
   };
 
   render() {
-    const { showModal, toggleModal, formSwap, modalForm } = this.props;
+    const {
+      showModal,
+      toggleModal,
+      formSwap,
+      modalForm,
+      authorized,
+    } = this.props;
     const { name, email, password, confirmPassword } = this.state;
     return (
       <Modal
@@ -52,7 +58,7 @@ class LoginModal extends React.Component {
         onRequestClose={toggleModal}
         shouldCloseOnOverlayClick={true}
         shouldCloseOnEsc={true}
-        isOpen={showModal}
+        isOpen={!authorized ? showModal : false}
         ariaHideApp={true}
       >
         <p className="close" onClick={toggleModal}>
