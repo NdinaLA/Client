@@ -20,6 +20,7 @@ const NavbarUserUtils = ({ toggleModal, authorized, signOutUser }) => {
         src={searchIcon}
         alt="search icon"
       />
+
       {authorized === false ? (
         <p className="navbar-user-utils-icon" onClick={toggleModal}>
           Log In
