@@ -10,16 +10,47 @@ import LoginModal from '../LoginModal/LoginModal';
 import { connect } from 'react-redux';
 import { toggleModal } from '../../actions/modalDisplay';
 import { signOutUser } from '../../actions/isLogged';
+import { toggleSearchbar } from '../../actions/search';
 
-const NavbarUserUtils = ({ toggleModal, authorized, signOutUser }) => {
+const NavbarUserUtils = ({
+  toggleModal,
+  authorized,
+  signOutUser,
+  toggleSearchbar,
+  displaySearchbar,
+}) => {
   return (
     <div className="navbar-user-utils">
       <LoginModal />
-      <img
-        className="navbar-user-utils-icon"
-        src={searchIcon}
-        alt="search icon"
-      />
+      {displaySearchbar ? (
+        <>
+          <form className="searchForm">
+            <div className="selectContainer">
+              <select className="searchSelector">
+                <option value="All">All</option>
+                <option value="placeholder">placeholder</option>
+                <option value="placeholder">placeholder</option>
+              </select>
+            </div>
+            <input className="searchInput" />
+          </form>
+          <div className="graySearch">
+            <img
+              className="navbar-user-utils-icon searchIcon"
+              src={searchIcon}
+              alt="search icon"
+              onClick={toggleSearchbar}
+            />
+          </div>
+        </>
+      ) : (
+        <img
+          className="navbar-user-utils-icon"
+          src={searchIcon}
+          alt="search icon"
+          onClick={toggleSearchbar}
+        />
+      )}
 
       {authorized === false ? (
         <p className="navbar-user-utils-icon" onClick={toggleModal}>
@@ -38,9 +69,12 @@ const NavbarUserUtils = ({ toggleModal, authorized, signOutUser }) => {
 const mapStateToProps = (state) => {
   return {
     authorized: state.isLogged.authorized,
+    displaySearchbar: state.searchProducts.displaySearchbar,
   };
 };
 
-export default connect(mapStateToProps, { toggleModal, signOutUser })(
-  NavbarUserUtils
-);
+export default connect(mapStateToProps, {
+  toggleModal,
+  signOutUser,
+  toggleSearchbar,
+})(NavbarUserUtils);

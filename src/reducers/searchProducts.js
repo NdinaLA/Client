@@ -1,7 +1,7 @@
 import { TOGGLE_SEARCHBAR } from '../actions/types';
 
 const initialState = {
-  toggleSearchbar: false,
+  displaySearchbar: false,
   searchResults: [],
 };
 
@@ -10,7 +10,7 @@ const searchProducts = (state = initialState, action) => {
 
   switch (type) {
     case TOGGLE_SEARCHBAR:
-      return { ...state, toggleSearchbar: !state.toggleSearchbar };
+      return { ...state, displaySearchbar: !state.displaySearchbar };
     default:
       return { ...state };
   }
