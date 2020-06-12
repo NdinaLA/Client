@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import './searchBar.styles.css';
 
@@ -41,11 +41,11 @@ class SearchBar extends React.Component {
 
   render() {
     const { toggleSearchbar, displaySearchbar } = this.props;
-
+    const { searchInput } = this.state;
     return (
       <div className="navbar-user-utils">
         {displaySearchbar ? (
-          <>
+          <Fragment>
             <form className="searchForm" onSubmit={this.onSubmit}>
               <div className="selectContainer">
                 <select className="searchSelector">
@@ -57,7 +57,7 @@ class SearchBar extends React.Component {
               <input
                 className="searchInput"
                 name="searchInput"
-                value={this.state.searchInput}
+                value={searchInput}
                 onChange={this.onChange}
               />
               <input type="submit" className="submit" />
@@ -70,7 +70,7 @@ class SearchBar extends React.Component {
                 onClick={this.initSearch}
               />
             </div>
-          </>
+          </Fragment>
         ) : (
           <img
             className="navbar-user-utils-icon"
