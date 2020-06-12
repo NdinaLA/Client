@@ -1,7 +1,7 @@
 .navbar-user-utils-icon {
   margin: 0;
   display: inline;
-  padding: 10px;
+  padding: 20px;
 }
 
 .navbar-user-utils-icon:hover {
@@ -11,5 +11,7 @@
 
 .navbar-user-utils {
   display: flex;
+  flex-direction: row;
   justify-content: flex-end;
+  max-height: 65px;
 }

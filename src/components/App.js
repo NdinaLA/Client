@@ -62,6 +62,7 @@ class App extends React.Component {
   render() {
     // Grab counter from redux state
     // const counter = useSelector(state => state.isLogged);
+    const { isSearching, searchResults } = this.props;
     return (
       <React.Fragment>
         {/* <h1>{this.counter}</h1>
@@ -70,9 +71,15 @@ class App extends React.Component {
         <Header />
 
         <div style={testingGridStyle}>
-          {this.state.data.map((info) => (
-            <MerchThumbnail key={info.id} dataMap={info} />
-          ))}
+          {isSearching && searchResults.length === 0 && <p>No matches!</p>}
+
+          {isSearching
+            ? searchResults.map((info) => (
+                <MerchThumbnail key={info.id} dataMap={info} />
+              ))
+            : this.state.data.map((info) => (
+                <MerchThumbnail key={info.id} dataMap={info} />
+              ))}
         </div>
         <Footer />
       </React.Fragment>
@@ -80,8 +87,13 @@ class App extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  isSearching: state.searchProducts.isSearching,
+  searchResults: state.searchProducts.searchResults,
+});
+
 const mapDispatchToProps = {
   loadUser,
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
